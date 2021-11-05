@@ -1,0 +1,141 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+          }
+        },
+        "d681d57a-49da-4a1e-99a6-b158baaa97e2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "contact",
+            "icon": "heart"
+          }
+        },
+        "29449e73-5545-4da0-addb-76a7cab1c4da": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab",
+            "content": "",
+            "page": "",
+            "icon": "check_mark"
+          }
+        },
+        "4c023397-44e1-40d2-b6cd-9da8da88d89e": {
+          "type": "popup",
+          "settings": {
+            "link_label": "Pop-up link text",
+            "page": "contact"
+          }
+        },
+        "11224f08-625f-4ff2-adb2-779026463aec": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.my_fields.product_sub_info.value }}- test2222",
+            "text_style": "subtitle"
+          }
+        },
+        "7564bdc9-caab-49b2-915b-8364a02411b6": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Collapsible tab 123123",
+            "content": "",
+            "page": "contact",
+            "icon": "check_mark"
+          }
+        },
+        "35987638-7d34-4411-a941-f1f769aaf0ec": {
+          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "subtitle",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share",
+        "d681d57a-49da-4a1e-99a6-b158baaa97e2",
+        "29449e73-5545-4da0-addb-76a7cab1c4da",
+        "4c023397-44e1-40d2-b6cd-9da8da88d89e",
+        "11224f08-625f-4ff2-adb2-779026463aec",
+        "7564bdc9-caab-49b2-915b-8364a02411b6",
+        "35987638-7d34-4411-a941-f1f769aaf0ec"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "enable_video_looping": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations"
+  ]
+}
