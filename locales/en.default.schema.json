@@ -1559,6 +1559,35 @@
       "presets": {
         "name": "Rich text"
       }
+    },
+    "accordion": {
+      "name": "Accordion",
+      "settings": {
+        "full_width": {
+          "label": "Make section full width"
+        }
+      },
+      "blocks": {
+        "heading": {
+          "name": "Accordion Heading",
+          "settings": {
+            "heading": {
+              "label": "Accordion Heading"
+            }
+          }
+        },
+        "text": {
+          "name": "Accordion Text",
+          "settings": {
+            "text": {
+              "label": "Accordion Slide"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Accordion"
+      }
     }
   }
 }

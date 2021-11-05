@@ -1,0 +1,15 @@
+.accordion_title {
+}
+
+
+.accordion__slide {
+
+}
+
+
+
+.element:not(.active) .answer-element{
+
+  display: none;
+
+}
