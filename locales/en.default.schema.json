@@ -1568,19 +1568,14 @@
         }
       },
       "blocks": {
-        "heading": {
-          "name": "Accordion Heading",
+        "slide": {
+          "name": "Slide",
           "settings": {
             "heading": {
-              "label": "Accordion Heading"
-            }
-          }
-        },
-        "text": {
-          "name": "Accordion Text",
-          "settings": {
+              "label": "Heading"
+            },
             "text": {
-              "label": "Accordion Slide"
+              "label": "Slide"
             }
           }
         }

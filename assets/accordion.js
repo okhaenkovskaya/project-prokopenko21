@@ -1,40 +1,36 @@
-class AccordionComponent extends HTMLElement {
-  constructor() {
-    super();
+if (!customElements.get('accordion-component')) {
+  class AccordionComponent extends HTMLElement {
+    constructor() {
+      super();
 
-    this.accordion = this.querySelector('.element');
-    this.btn = this.querySelector('.btn-element');
-    this.accordions = document.querySelectorAll('.element');
+      this.accordions = this.querySelectorAll('.accordion__slide');
+      this.btns = this.querySelectorAll('.accordion__btn-opener');
 
-    this.btn.addEventListener('click', this.onButtonClick.bind(this));
+      this.btns.forEach(btn => {
+        btn.addEventListener('click', this.onButtonClick.bind(this));
+      });
+    }
 
-    this.initPages()
-  }
+    closeAllElements() {
+       this.accordions.forEach(accordion => {
+          if (accordion.classList.contains('active')) {
+            accordion.classList.remove('active');
+          }
+       });
+    }
 
-  initPages() {
+    onButtonClick(event) {
+      event.preventDefault();
+      let elem =  event.target.closest('.accordion__slide');
 
-    if(!this.accordion.length === 0) return;
-    this.closeAllElements();
-
-  }
-
-  closeAllElements() {
-    this.accordions.forEach(accordion =>{
-      accordion.classList.remove('active');
-    });
-  }
-
-  onButtonClick(event) {
-    event.preventDefault();
-
-    if (this.accordion.classList.contains('active')) {
-      this.accordion.classList.remove('active');
-
-    } else {
-      this.closeAllElements();
-      this.accordion.classList.add('active');
+      if (elem.classList.contains('active')) {
+        elem.classList.remove('active');
+      } else {
+        this.closeAllElements();
+        elem.classList.add('active');
+      }
     }
   }
-}
+  customElements.define('accordion-component', AccordionComponent);
 
-customElements.define('accordion-component', AccordionComponent);
+}

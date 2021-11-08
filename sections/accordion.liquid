@@ -1,71 +1,29 @@
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'accordion.css' | asset_url }}" media="print" onload="this.media='all'">
+{% if section.blocks.size > 0 %}
+  <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'accordion.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'accordion.css' | asset_url | stylesheet_tag }}</noscript>
 
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'accordion.css' | asset_url | stylesheet_tag }}</noscript>
+  <div class="page-width accordion-section">
+    {% if section.settings.heading != blank %}
+      <h1 class="accordion-section__title">{{ section.settings.heading }}</h1>
+    {% endif %}
 
-
-<h1>{{ section.settings.heading }}</h1>
-
-<accordion-component>
-<div class="element">
-  <div class="question">
-    <h3>dolor sit amet?</h3>
-    <button class="btn-element">111button test</button>
+    <accordion-component>
+      {%- for block in section.blocks -%}
+        <div class="accordion__slide">
+          <button class="h3 accordion__btn-opener btn-element">{{ block.settings.heading | escape }}</button>
+          <div class="accordion__text rte">
+            {{ block.settings.text }}
+          </div>
+        </div>
+      {%- endfor -%}
+    </accordion-component>
   </div>
-  <div class="answer-element hideText">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fugiat
-       debitis voluptatibus in, rem nihil itaque deserunt facere porro laborum.</p>
-  </div>
-</div>
-  </accordion-component>
 
+  <script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
+{% endif %}
 
-<accordion-component>
-  <div class="element active">
-    <div class="question">
-      <h3>dolor sit amet?</h3>
-      <button class="btn-element">222button test</button>
-    </div>
-    <div class="answer-element hideText">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fugiat
-         debitis voluptatibus in, rem nihil itaque deserunt facere porro laborum.</p>
-    </div>
-  </div>
-</accordion-component>
-
-
-
-<accordion-component>
-  <div class="element">
-    <div class="question">
-      <h3>dolor sit amet?</h3>
-      <button class="btn-element">333button test</button>
-    </div>
-    <div class="answer-element hideText">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fugiat
-         debitis voluptatibus in, rem nihil itaque deserunt facere porro laborum.</p>
-    </div>
-  </div>
-</accordion-component>
-
-
-{% comment %}
-<accordion-component>
-{%- for block in section.blocks -%}
-  {%- case block.type -%}
-  {%- when 'heading' -%}
-    <h2 class="accordion_title color-background-1">{{ block.settings.heading | escape }}</h2>
-  {%- when 'text' -%}
-    <div class="accordion__slide rte color-background-2">{{ block.settings.text }}</div>
-  {%- endcase -%}
-{%- endfor -%}
-</accordion-component>
-{% endcomment %}
-
-<script src="{{ 'accordion.js' | asset_url }}" defer></script>
-
-<br><br><br>
 
 {% schema %}
 {
@@ -76,53 +34,31 @@
     {
       "type": "text",
       "id": "heading",
-      "default": "Talk about your brand",
-      "label": "heading"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "default": true,
-      "label": "t:sections.accordion.settings.full_width.label"
+      "label": "Heading"
     }
   ],
   "blocks": [
     {
-      "type": "heading",
-      "name": "t:sections.accordion.blocks.heading.name",
+      "type": "slide",
+      "name": "t:sections.accordion.blocks.slide.name",
       "settings": [
         {
           "type": "text",
           "id": "heading",
-          "default": "Talk about your brand",
-          "label": "t:sections.accordion.blocks.heading.settings.heading.label"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.accordion.blocks.text.name",
-      "settings": [
+          "label": "t:sections.accordion.blocks.slide.settings.heading.label"
+        },
         {
           "type": "richtext",
           "id": "text",
-          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-          "label": "t:sections.accordion.blocks.text.settings.text.label"
+          "default": "<p></p>",
+          "label": "t:sections.accordion.blocks.slide.settings.text.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.accordion.presets.name",
-      "blocks": [
-        {
-          "type": "heading"
-        },
-        {
-          "type": "text"
-        }
-      ]
+      "name": "t:sections.accordion.presets.name"
     }
   ]
 }
