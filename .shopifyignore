@@ -1,0 +1,14 @@
+config/settings_data.json
+templates/product.json
+templates/page.alternate.json
+templates/page.contact.json
+templates/list-collections.json
+templates/page.json
+templates/password.json
+templates/search.json
+templates/collection.json
+templates/cart.json
+templates/index.json
+templates/blog.json
+templates/article.json
+templates/404.json

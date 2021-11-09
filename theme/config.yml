@@ -1,7 +1,0 @@
-development:
-  password: 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
-  theme_id: 126010589376
-  store: prokopenko-2021.myshopify.com
-  ignore_files:
-    - settings_data.json
-    - config/settings_data.json
