@@ -1,39 +1,54 @@
 .accordion-section {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  border-top: 0.1rem solid var(--color-foreground-20);
+  border-top: 0.1rem solid var(--color-foreground-75);
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .accordion-section__title {
-  display: inline-block;
-  max-width: calc(100% - 6rem);
-  min-height: 1.6rem;
   margin: 0;
-  word-break: break-word;
 }
 
 .accordion__btn-opener {
-  padding: 10px;
+  padding: 10px 40px 10px 0;
   margin: 0;
   display: block;
   border: 0;
   width: 100%;
   text-align: left;
   background: none;
+  position: relative;
+}
+
+.accordion__btn-opener:after {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  content: '';
+  width: 16px;
+  height: 2px;
+  margin-top: -1px;
+  background: var(--color-foreground-20);
+}
+
+.accordion__btn-opener:before {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  content: '';
+  width: 2px;
+  height: 16px;
+  margin-top: -8px;
+  margin-right: 7px;
+  background: var(--color-foreground-20);
 }
 
 .accordion__slide {
-  margin-bottom: .5rem;
   border-bottom: 0.1rem solid var(--color-foreground-20);
 }
 
-.accordion__text{
-  overflow: hidden;
-  transition: .5s ease max-height;
-  max-height: 100vh;
+.accordion__slide.active .accordion__btn-opener:before {
+  display: none;
 }
 
-.accordion__slide:not(.active) .accordion__text{
-  max-height: 0;
-  transition: .5s ease max-height;
-}
